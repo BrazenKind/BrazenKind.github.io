@@ -1,0 +1,42 @@
+.main-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 95vw;
+    margin: 2.5vw;
+    padding: 20px;
+    gap: 20px;
+    --child-bg-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+    .main-container {
+        --child-bg-color: rgba(50, 50, 50, 0.4);
+    }
+}
+
+.child-container {
+    border: none;
+    border-radius: 5px;
+    background: var(--child-bg-color);
+    height: 40vh;
+}
+
+.banner {
+    background: none;
+    color: white;
+    height: 40vh;
+}
+
+.intro {
+    height: 50vh;
+}
+
+.interactive-graph {
+    height: 70vh;
+}
+
+.contact-me {
+    height: 40vh;
+}

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rgb-start: #E8B4B4;
+  --rgb-end: #B2B6E5;
+  --font-color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rgb-start: #2C0404;
+    --rgb-end: #060821;
+    --font-color: white;
+  }
+}
+
+body {
+  background: linear-gradient(var(--rgb-start), var(--rgb-end));
+  color: var(--font-color);
+}

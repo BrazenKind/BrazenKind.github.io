@@ -20,20 +20,6 @@ export default function Banner(data) {
   const curIndex = React.useRef(0);
   const curTextDelay = React.useRef(generateDelay(baseTextDelay, baseTextVariance));
 
-
-  const containerStyle = {
-    height: '40vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '4em',
-  }
-
-  const logoStyle = {
-    background: 'none',
-    border: 'none',
-  };
-
   const animate = time => {
     if (prevTime.current != undefined) {
       const deltaTime = time - prevTime.current;
@@ -59,7 +45,7 @@ export default function Banner(data) {
   }, []);
 
   return (
-    <div id="banner" style={containerStyle}>
+    <div id="banner">
         <h1>{titleText}</h1>
     </div>
   )

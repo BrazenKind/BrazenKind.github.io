@@ -1,0 +1,98 @@
+.react-flow__edge-path, .react-flow__connection-path {
+    stroke: black;
+    stroke-width: 1;
+    fill: none;
+}
+
+.react-flow__node.jobitem {
+  border-radius: 10%;
+  width: 200px;
+  height: 150px;
+  background: var(--child-bg-color);
+}
+
+
+.react-flow__node.circle.selected {
+  box-shadow: 0px 0px 2px 20px #F7D63B;
+}
+
+.react-flow__node.circle_stub {
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+  border: 2px solid black;
+  font-weight: 700;
+  font-size: 8px;
+}
+
+.nodeLabelTop{
+  position: relative;
+  top: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.react-flow__minimap{
+    height: 120;
+}
+
+#legend{
+    display: flex;
+    border-radius: 5%;
+    justify-content: center;
+    background: rgba(200, 200, 200, 0.5);
+    width: 24vw;
+    height: 25vh;
+    flex-flow: column nowrap;
+}
+
+.legend_row{
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 33%;
+}
+
+.legend_row > img {
+    object-fit: contain;
+    height: 100%;
+    max-height: 50px;
+}
+
+.legend_row > legend_text {
+    display: flex;
+    justify-content: center;
+}
+
+.legend_row > * {
+    margin-left: 1vw;
+}
+
+.border_purple {
+    border: 0.8vw solid #7810C7;
+}
+
+.border_red {
+    border: 0.8vw solid #F5402C;
+}
+
+.border_white {
+    border: 0.8vw solid white;
+}
+
+.static_circle {
+    border-radius: 50%;
+    width: 1vw;
+    aspect-ratio: 1/1;
+    background-color: black;
+    box-shadow: 0px 0px 0px 2px black;
+}
+
+#textBox > * {
+    margin: 3%;
+}
+
+.projDesc {
+
+}

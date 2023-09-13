@@ -1,5 +1,8 @@
 import './css/page.css'
 import Banner from './banner.tsx'
+import Intro from './intro.tsx'
+import Image from 'next/image'
+import Timeline from './timeline_code.js'
 
 export default function Home() {
 
@@ -9,9 +12,12 @@ export default function Home() {
 
             <Banner text="Brazenkind"/>
 
-            <div className="child-container intro">
-                test
+            <Intro/>
+
+            <div style={{height: '80vh'}}>
+                <Timeline/>
             </div>
+
 
             <div className="child-container interactive-graph">
                 test

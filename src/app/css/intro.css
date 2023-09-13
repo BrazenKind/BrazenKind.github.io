@@ -1,0 +1,19 @@
+#intro {
+    height: 50vh;
+    border: 3px solid black;
+    border: 50px solid transparent;
+    background: var(--child-bg-color);
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+#intro > #textbox {
+    flex-grow: 1;
+    padding-left: 30px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}

@@ -10,7 +10,6 @@ export default function Intro(data){
               src="./Yee.jpg"
               width={500}
               height={500}
-              style={{width: '20%', height: '100%', objectFit: 'cover', borderRadius: '10px'}}
               alt="Picture of the author"
             />
             <div id="textbox">

@@ -1,6 +1,5 @@
 #intro {
     height: 50vh;
-    border: 3px solid black;
     border: 50px solid transparent;
     background: var(--child-bg-color);
     border-radius: 5px;
@@ -18,17 +17,41 @@
     gap: 20px;
 }
 
+#profile_pic {
+    width: 20%;
+    height: 100%;
+    objectFit: cover;
+    borderRadius: 10px;
+}
+
 #textbox > #texttitle {
-    font-size: 3em
+    font-size: 3em;
 }
 
 #textbox > #textcontent {
-    font-size: 1.5em
+    font-size: 1.5em;
 }
+
+
 
 @media (max-width: 540px) {
     #intro {
         flex-flow: column nowrap;
+        height: fit-content;
+        border: 15px solid transparent;
+    }
+
+    #intro > #textbox {
+        padding-left: 0px;
+        text-align: center;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 20px;
+    }
+
+    #profile_pic {
+        width: 80%;
+        height: 240px;
     }
 
     #textbox > #texttitle {

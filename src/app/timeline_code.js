@@ -14,7 +14,7 @@ import 'reactflow/dist/style.css';
 // The CSS styling options for dynamic elements that make use of react states must be declared in this file instead.
 // For a 'dynamic element' CSS example, ctrl+f textBoxStyle.
 import {nodes as initialNodes, edges as initialEdges, x_one_start, y_one_start} from './initial-elements';
-import './CSS/react_styles.css';
+import './css/react_styles.css';
 
 
 // Imported custom nodes.

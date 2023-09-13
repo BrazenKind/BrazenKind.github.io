@@ -5,11 +5,6 @@ import { MarkerType, Position } from 'reactflow';
 // The timeline is divided into 3 axes: axis 1, axis 2 and axis 3. An axis is defined as a set of connected nodes
 // that share the same Y coordinates.
 
-window.addEventListener('load', function () {
-    var eles = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
-    console.log(eles);
-});
-
 export const x_one_start = 500;
 export const y_one_start = 300;
 

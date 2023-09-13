@@ -194,7 +194,7 @@ function Timeline() {
             <Panel position="bottom-right" style={{visibility: `${contentVisible}`}}>
                 <div id="textBox" style={textBoxStyle}>
                     <p>{textContent}</p>
-                    <p class="projDesc" >{projDesc}</p>
+                    <p className="projDesc" >{projDesc}</p>
                 </div>
             </Panel>
 

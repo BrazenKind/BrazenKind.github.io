@@ -14,8 +14,8 @@ export default function Intro(data){
               alt="Picture of the author"
             />
             <div id="textbox">
-              <div style={{fontSize: '3em'}}>About Me</div>
-              <div style={{fontSize: '1.5em'}}>
+              <div id="texttitle" >About Me</div>
+              <div id="textcontent">
                 I&apos;m <span style={{color: 'blue'}}>Sinclair</span>, a graduate student whose studies intersect Artificial Intelligence with Software Enginnering.
                 As of writing this, I&apos;m interning at the DEVCOM army reserach laboratory. I&apos;m working on developing interactive demos that
                  demonstrate their research projects in AI, as well as the webpage that hosts said interactive demos.

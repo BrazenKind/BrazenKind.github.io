@@ -17,3 +17,25 @@
     flex-flow: column nowrap;
     gap: 20px;
 }
+
+#textbox > #texttitle {
+    font-size: 3em
+}
+
+#textbox > #textcontent {
+    font-size: 1.5em
+}
+
+@media (max-width: 540px) {
+    #intro {
+        flex-flow: column nowrap;
+    }
+
+    #textbox > #texttitle {
+        font-size: 1.5em
+    }
+
+    #textbox > #textcontent {
+        font-size: 1em
+    }
+}

@@ -13,7 +13,7 @@ import 'reactflow/dist/style.css';
 // './react_styles.css' includes all the CSS styling options for static elements within our timeline.
 // The CSS styling options for dynamic elements that make use of react states must be declared in this file instead.
 // For a 'dynamic element' CSS example, ctrl+f textBoxStyle.
-import {nodes as initialNodes, edges as initialEdges, x_one_start, y_one_start} from './initial-elements';
+import {nodes as initialNodes, edges as initialEdges, center_x, center_y} from './initial-elements';
 import './css/react_styles.css';
 
 
@@ -88,11 +88,8 @@ function Timeline() {
                 const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
 
                 const zoom = 0.8;
-                const offsetfactor = (0.5*(1/zoom))
-                const x_displacement = offsetfactor*width - 120;
-                const y_displacement = (height)*offsetfactor - 100;
 
-                setCenter(x_displacement, y_displacement, { zoom, duration: 1000 });
+                setCenter(center_x, center_y, { zoom, duration: 1000 });
                 setVisible('hidden');
                 setMaxZ(2);
                 setMinZ(0.5);
@@ -138,12 +135,12 @@ function Timeline() {
       }, [contentVisible, setNodes]);
 
     //hook that gets called when this component mounts. Centers screen.
-    useEffect(() => {
-        const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
-        const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
-        setCenter(width, height, { zoom: 1, duration: 0 });
 
-    }, []);
+    const center_screen = useCallback((instance) => {
+        const zoom = 1;
+        setCenter(center_x, center_y, { zoom, duration: 500 });
+
+    });
 
     // All CSS stylesheet elements that make use of react states must be declared as a const here.
     // I.E. if some element <div> needs to make use of the react state "contentVisible",
@@ -172,6 +169,7 @@ function Timeline() {
          <ReactFlow
           nodes={nodes}
           edges={edges}
+          onInit = {center_screen}
           nodesDraggable={false}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}

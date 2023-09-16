@@ -24,7 +24,6 @@ export default function Banner(data) {
     if (prevTime.current != undefined) {
       const deltaTime = time - prevTime.current;
       if (deltaTime >= curTextDelay.current){
-        console.log(curTextDelay.current);
         setTitleText(data.text.slice(0, curIndex.current));
 
         curTextDelay.current = generateDelay(baseTextDelay, baseTextVariance);

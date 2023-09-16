@@ -1,5 +1,6 @@
 #intro {
-    height: 50vh;
+    height: fit-content;
+    min-height: 50vh;
     border: 50px solid transparent;
     background: var(--child-bg-color);
     border-radius: 5px;
@@ -20,7 +21,7 @@
 #profile_pic {
     width: 20%;
     height: 100%;
-    objectFit: cover;
+    object-fit: cover;
     borderRadius: 10px;
 }
 
@@ -50,8 +51,10 @@
     }
 
     #profile_pic {
-        width: 80%;
+        width: 40%;
         height: 240px;
+        object-fit: cover;
+        borderRadius: 10px;
     }
 
     #textbox > #texttitle {

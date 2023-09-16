@@ -5,8 +5,13 @@ import { MarkerType, Position } from 'reactflow';
 // The timeline is divided into 3 axes: axis 1, axis 2 and axis 3. An axis is defined as a set of connected nodes
 // that share the same Y coordinates.
 
-export const x_one_start = 500;
-export const y_one_start = 300;
+const x_one_start = 0;
+const y_one_start = 0;
+
+//set center_x to the x coordinates plus half the width of the node you'd like to focus on.
+//set center_y to y coordinates plus half the height of the node you'd like to focus on.
+export const center_x = x_one_start + 100;
+export const center_y = y_one_start + 75;
 
 const x_two_start = 650;
 const y_two_start = 300;

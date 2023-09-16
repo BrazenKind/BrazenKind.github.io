@@ -14,7 +14,7 @@ export default function Home() {
 
             <Intro/>
 
-            <div style={{height: '80vh'}}>
+            <div id = "Timeline_Container" style={{height: '80vh'}}>
                 <Timeline/>
             </div>
 

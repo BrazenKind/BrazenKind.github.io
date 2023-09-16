@@ -7,13 +7,18 @@
     font-size: 4em;
 }
 
-#banner h1::before {
-    content: "";
-}
-
 #banner h1::after {
     content: "|";
     animation: cursor-blink 1s steps(2) infinite;
+}
+
+@media (max-width: 540px) {
+    height: 40vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
 }
 
 @keyframes cursor-blink {

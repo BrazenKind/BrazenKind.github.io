@@ -29,12 +29,13 @@ export default function Contact_Me () {
 
         var formData = {};
         fields.forEach(function(name){
+          console.log(name);
           var element = elements[name];
 
           formData[name] = element.value;
 
           if (element.length) {
-            var data = [];
+            var data: any[] = [];
             for (var i = 0; i < element.length; i++) {
               var item = element.item(i);
               if (item.checked || item.selected) {
@@ -45,9 +46,9 @@ export default function Contact_Me () {
           }
         });
 
-        formData.formDataNameOrder = JSON.stringify(fields);
-        formData.formGoogleSheetName = form.dataset.sheet || "responses";
-        formData.formGoogleSendEmail
+        formData['formDataNameOrder'] = JSON.stringify(fields);
+        formData['formGoogleSheetName'] = form.dataset.sheet || "responses";
+        formData['formGoogleSendEmail']
           = form.dataset.email || "";
 
         return {data: formData, honeypot: honeypot};

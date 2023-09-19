@@ -7,11 +7,11 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    gap: 20px;
 }
 
 #intro > #textbox {
     flex-grow: 1;
-    padding-left: 30px;
     text-align: center;
     display: flex;
     flex-flow: column nowrap;
@@ -19,10 +19,10 @@
 }
 
 #profile_pic {
-    width: 20%;
-    height: 100%;
-    object-fit: cover;
-    borderRadius: 10px;
+
+    max-height: 40vh;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 #textbox > #texttitle {
@@ -35,15 +35,15 @@
 
 
 
-@media (max-width: 540px) {
+@media (max-width: 750px) {
     #intro {
         flex-flow: column nowrap;
         height: fit-content;
-        border: 15px solid transparent;
+        gap: 25px;
+        border: 25px solid transparent;
     }
 
     #intro > #textbox {
-        padding-left: 0px;
         text-align: center;
         display: flex;
         flex-flow: column nowrap;
@@ -51,10 +51,9 @@
     }
 
     #profile_pic {
-        width: 40%;
         height: 240px;
-        object-fit: cover;
-        borderRadius: 10px;
+        object-fit: contain;
+        border-radius: 10px;
     }
 
     #textbox > #texttitle {

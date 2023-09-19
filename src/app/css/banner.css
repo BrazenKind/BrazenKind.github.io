@@ -13,12 +13,14 @@
 }
 
 @media (max-width: 540px) {
-    height: 40vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
+    #banner {
+        height: 40vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3em;
+    }
 }
 
 @keyframes cursor-blink {

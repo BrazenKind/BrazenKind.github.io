@@ -3,6 +3,8 @@ import Banner from './banner.tsx'
 import Intro from './intro.tsx'
 import Image from 'next/image'
 import Timeline from './timeline_code.js'
+import Projects from './projects.tsx'
+import Contact_Me from './contact_me.tsx'
 
 export default function Home() {
 
@@ -18,15 +20,12 @@ export default function Home() {
                 <Timeline/>
             </div>
 
+            <Projects/>
 
-            <div className="child-container interactive-graph">
-                test
-            </div>
 
-            <div className="child-container contact-me">
-                test
-            </div>
         </div>
+
+        <Contact_Me/>
 
     </main>
   )

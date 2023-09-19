@@ -1,0 +1,50 @@
+#project_wrapper {
+    height: 600px;
+    width: 100%;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.project_card {
+    width: 250px;
+    height: 200px;
+    margin: 30px;
+    border-radius: 10%;
+    background: var(--child-bg-color);
+}
+
+@media (max-width: 950px){
+    #project_wrapper {
+        height: 1000px;
+        width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+}
+
+@media (max-width: 675px){
+    #project_wrapper {
+        height: 1800px;
+        width: 100%;
+
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+}

@@ -1,3 +1,8 @@
+main {
+    --child-bg-color: rgba(255, 255, 255, 0.4);
+    --child-bg-color-inverted: rgba(50, 50, 50, 0.4);
+}
+
 .main-container {
     display: flex;
     flex-flow: column nowrap;
@@ -7,12 +12,12 @@
     margin: 2.5vw;
     padding: 20px;
     gap: 20px;
-    --child-bg-color: rgba(255, 255, 255, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
-    .main-container {
+    .main {
         --child-bg-color: rgba(50, 50, 50, 0.4);
+        --child-bg-color-inverted: rgba(255, 255, 255, 0.4);
     }
 }
 

@@ -97,7 +97,7 @@ export let nodes = [
         id: '1.3',
         data: {
             label: 'Sign Language Image Classifier',
-            desc: 'A CNN (Convolutional Neural Network) with a 99% accuracy that identifies pictures of hand poses as letters in the sign language alphabet.',
+            desc: 'My implementation of LeNet with a 99% accuracy that identifies pictures of hand poses as letters in the sign language alphabet.',
             labelpos: 'nodeLabelTop',
             leftStyle: {visibility: 'visible',},
             rightStyle: {visibility: 'visible',},

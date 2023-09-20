@@ -64,11 +64,11 @@ export let nodes = [
         id: '1.1',
         data: {
             label: 'Conditional Random Field Implementation',
-            desc: 'My graduate assessment for CMSC 673: introduction to natural language processing.',
+            desc: 'My attempt at implementing a CRF according to the original paper published by Charles Sutton et al. Part of one of my first courses I took at UMBC: Intro to Natural Language Processing.',
             labelpos: 'nodeLabelTop',
-            projdesc: 'asdf',
             leftStyle: {visibility: 'hidden',},
             rightStyle: {visibility: 'visible',},
+            bg: 'CRF.png',
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -80,11 +80,11 @@ export let nodes = [
         id: '1.2',
         data: {
             label: 'Covid Misinformation Detector',
-            desc: 'My final project for CMSC 673: introduction to natural language processing.',
+            desc: 'A group project of 4 where Multiple machine learning approaches were applied to identifying COVID-related misinformation. The model I built was a MaxEnt (Maximum Entropy) model.',
             labelpos: 'nodeLabelTop',
-            projdesc: 'asdf',
             leftStyle: {visibility: 'visible',},
             rightStyle: {visibility: 'visible',},
+            bg: 'COVID-misinfo-teaser.jpg',
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -97,11 +97,11 @@ export let nodes = [
         id: '1.3',
         data: {
             label: 'Sign Language Image Classifier',
-            desc: 'My final project for CMSC 678: introduction to Machine Learning.',
+            desc: 'A CNN (Convolutional Neural Network) with a 99% accuracy that identifies pictures of hand poses as letters in the sign language alphabet.',
             labelpos: 'nodeLabelTop',
-            projdesc: 'asdf',
             leftStyle: {visibility: 'visible',},
             rightStyle: {visibility: 'visible',},
+            bg: 'Sign_Language.png',
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -114,11 +114,11 @@ export let nodes = [
         id: '1.4',
         data: {
             label: 'Wordle Solver',
-            desc: 'My final project for CMSC 671: principles of artificial intelligence.',
+            desc: 'A decision tree model built to efficiently solve wordle given a pre-existing vocabulary of possible words.',
             labelpos: 'nodeLabelTop',
-            projdesc: 'asdf',
             leftStyle: {visibility: 'visible',},
             rightStyle: {visibility: 'visible',},
+            bg: 'wordle_reuters.jpg',
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -131,11 +131,11 @@ export let nodes = [
         id: '1.5',
         data: {
             label: 'Aeroplane: an Android Password Archiver',
-            desc: 'My final project for CMSC 628: Introduction to Mobile Computing.',
+            desc: 'An Android app I built that integrated multiple AWS web services to store user-submitted passwords. Includes a fully functional user login system. The picture to the right is an actual screenshot of the app run in an android emulator.',
             labelpos: 'nodeLabelTop',
-            projdesc: 'asdf',
             leftStyle: {visibility: 'visible',},
             rightStyle: {visibility: 'visible',},
+            bg: 'Aeroplane_Screenshot.png',
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -240,7 +240,7 @@ export let nodes = [
 // 'b' = bottom handle
 // 'l' = left handle
 
-// const used to define the style of the marker ends (the "arrowtips") of the edges.
+// const used to define the style of the marker ends (the "arrowtips") of the edges. Currently not used.
 // source: https://reactflow.dev/docs/api/edges/edge-options/#edgemarker
 
 const markerStyle = {
@@ -252,11 +252,11 @@ const markerStyle = {
     };
 
 export const edges = [
-    {id: '1.1-1.2', source: '1.1', target: '1.2', markerEnd: markerStyle,},
-    {id: '1.2-1.3', source: '1.2', target: '1.3', markerEnd: markerStyle,},
-    {id: '1.3-1.4', source: '1.3', target: '1.4', markerEnd: markerStyle,},
-    {id: '1.4-1.5', source: '1.4', target: '1.5', markerEnd: markerStyle,},
-    {id: '1.5-1.6', source: '1.5', target: '1.6', markerEnd: markerStyle, animated: true},
+    {id: '1.1-1.2', source: '1.1', target: '1.2',},
+    {id: '1.2-1.3', source: '1.2', target: '1.3',},
+    {id: '1.3-1.4', source: '1.3', target: '1.4',},
+    {id: '1.4-1.5', source: '1.4', target: '1.5',},
+    {id: '1.5-1.6', source: '1.5', target: '1.6', animated: true},
     {id: '2.0-2.1', source: '2.0', target: '2.1', animated: true},
     {id: '2.1-2.2', source: '2.1', target: '2.2',},
     {id: '2.2-2.3', source: '2.2', target: '2.3', animated: true},

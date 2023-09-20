@@ -9,8 +9,11 @@
 .pan_left {
     flex: 1 0 50%;
     height: 100%;
-    border: 3px solid blue;
     box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .pan_right {
@@ -20,8 +23,28 @@
     flex-flow: column nowrap;
     justify-content: center;
     padding-left: 30px;
-    border: 3px solid red;
     box-sizing: border-box;
+}
+
+input {
+    width: 80%;
+}
+
+#message {
+    height: 150px;
+    overflow: auto;
+}
+
+#send_button {
+    border-radius: 5%;
+    border: 5px solid transparent;
+    border-right: 10px solid transparent;
+    background: white;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+
 }
 
 @media (max-width: 850px) {
@@ -37,7 +60,6 @@
     .pan_left {
         width: 100%;
         flex: 1 0 50%;
-        border: 3px solid blue;
         box-sizing: border-box;
     }
 
@@ -48,7 +70,6 @@
         flex-flow: column nowrap;
         justify-content: center;
         padding-left: 30px;
-        border: 3px solid red;
         box-sizing: border-box;
     }
 }

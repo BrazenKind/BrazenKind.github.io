@@ -114,26 +114,31 @@ export default function Contact_Me () {
         <div id = "contact_me">
 
             <div className = "pan_left">
-
+                <div style={{fontSize: '48px'}}> Let us Connect! </div>
+                <div style={{margin: '20px', textAlign: 'center'}}> Whether you're a recruiter, someone else studying comp sci, or simply a stranger with questions, feel free to reach out to me. I'm always happy to talk to someone who takes an interest in what I do. <br/> <br/> To make this section feel less empty, have a MSPaint doodle I did for a friend.</div>
+                <img style={{height: '200px'}}src="Eat_egg.png"/>
             </div>
             <div className = "pan_right">
-                <div style={{fontSize: '48px'}}> Contact Me </div>
+                <div style={{fontSize: '48px'}}> Contact Form </div>
                 <form className="gform" method="POST"
   action="https://script.google.com/macros/s/AKfycbzGNppTCc71OFpd0F0Ay_xEktVU4NjSt0vIGrXaYgv9Bw6UkSlpbTn2trPsxl4JSZRSHQ/exec">
                     <fieldset>
                         <label htmlFor="name">Name: </label>
-                        <input id="name" name="name" placeholder="What your Mom calls you" />
+                        <br/>
+                        <input id="name" name="name" placeholder="First, what is your name?" />
                     </fieldset>
 
                     <fieldset>
                         <label htmlFor="message">Message: </label>
+                        <br/>
                         <input id="message" name="message" placeholder="Tell us what's on your mind..." />
                     </fieldset>
 
 
                     <fieldset>
                         <label htmlFor="email">Email: </label>
-                        <input id="email" name="email" required placeholder="your.name@email.com" />
+                        <br/>
+                        <input id="email" name="email" required placeholder="What address should I contact you back at?" />
                     </fieldset>
 
                     <fieldset className ="" style={{display: 'none'}}>
@@ -141,11 +146,11 @@ export default function Contact_Me () {
                         <input id="honeypot" type="text" name="honeypot"/>
                     </fieldset>
 
-                    <button className ="button-success pure-button button-xlarge">
-                    <i className="fa fa-paper-plane"></i>&nbsp;Send</button>
+                    <button id="send_button">
+                    <i></i>&nbsp;Send</button>
                     <div style={{display:'none'}} className="thankyou_message">
 
-                        <h2><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
+                        <h2><em>Thanks</em> for contacting me! I'll respond at my earliest convenience.</h2>
                     </div>
 
                 </form>

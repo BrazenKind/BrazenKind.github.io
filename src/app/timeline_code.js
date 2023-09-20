@@ -176,7 +176,7 @@ function Timeline() {
     const textBoxStyle = {
         visibility: `${contentVisible}`,
         width: '40vw',
-        height: '30vh',
+        minHeight: '20vh',
         borderRadius: '5%',
         background: 'rgba(200, 200, 200, 0.5)',
         fontSize: '1em',
@@ -189,8 +189,10 @@ function Timeline() {
         visibility: `${contentVisible}`,
         width: '30vw',
         maxWidth: '300px',
+        maxHeight: '40vh',
         borderRadius: '5%',
         background: 'rgba(200, 200, 200, 0.5)',
+        objectFit: 'contain',
     };
 
     const returnButtonStyle = {

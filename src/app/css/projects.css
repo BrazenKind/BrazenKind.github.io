@@ -1,5 +1,5 @@
 #project_wrapper {
-    min-height: 600px;
+    min-height: 400px;
     height: wrap-content;
     width: 100%;
 
@@ -12,17 +12,10 @@
 
 }
 
-.project_card {
-    width: 250px;
-    height: 200px;
-    margin: 30px;
-    border-radius: 10%;
-    background: var(--child-bg-color);
-}
 
 @media (max-width: 950px){
     #project_wrapper {
-        height: 1000px;
+        min-height: 800px;
         width: 100%;
 
         display: flex;
@@ -37,7 +30,7 @@
 
 @media (max-width: 675px){
     #project_wrapper {
-        height: 1800px;
+        min-height: 1200px;
         width: 100%;
 
         display: flex;

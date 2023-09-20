@@ -9,7 +9,7 @@ export let project_descs = [
         github: 'https://github.com/BrazenKind/CMSC-672-NLP-project',
     }, {
         name: 'Sign Language Image Classifier',
-        desc: 'My implementation of LeNet with a 99% accuracy that identifies pictures of hand poses as letters in the sign language alphabet.',
+        desc: 'My implementation of LeNet that achieved a 99% accuracy identifying pictures of sign language hand poses.',
         github: 'https://github.com/BrazenKind/CMSC-678-Final-Report',
     }, {
         name: 'Wordle Solver',

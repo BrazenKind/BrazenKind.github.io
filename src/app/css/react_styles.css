@@ -25,11 +25,37 @@
   font-size: 8px;
 }
 
+.react-flow__node.hidden_node {
+  border-radius: 50%;
+  width: 1px;
+  height: 1px;
+  font-weight: 700;
+  font-size: 8px;
+  visibility: hidden;
+}
+
 .nodeLabelTop{
   position: relative;
   top: 25px;
+  left: 10%;
+  width: 80%;
   text-align: center;
   font-weight: bold;
+}
+
+.circleStubLabel{
+  font-size: 15px;
+  position: relative;
+  right: 20px;
+  top: 10px;
+}
+
+.react-flow__node.circle_stub > .nodeLabelTop{
+  position: relative;
+  top: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
 }
 
 
@@ -37,56 +63,10 @@
     height: 120;
 }
 
-#legend{
-    display: flex;
-    border-radius: 5%;
-    justify-content: center;
-    background: rgba(200, 200, 200, 0.5);
-    width: 24vw;
-    height: 25vh;
-    flex-flow: column nowrap;
-}
-
-.legend_row{
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    height: 33%;
-}
-
-.legend_row > img {
-    object-fit: contain;
-    height: 100%;
-    max-height: 50px;
-}
-
-.legend_row > legend_text {
-    display: flex;
-    justify-content: center;
-}
-
-.legend_row > * {
-    margin-left: 1vw;
-}
-
-.border_purple {
-    border: 0.8vw solid #7810C7;
-}
-
-.border_red {
-    border: 0.8vw solid #F5402C;
-}
-
-.border_white {
-    border: 0.8vw solid white;
-}
-
-.static_circle {
-    border-radius: 50%;
-    width: 1vw;
-    aspect-ratio: 1/1;
-    background-color: black;
-    box-shadow: 0px 0px 0px 2px black;
+#return_button:hover{
+    background: white;
+    color: blue;
+    cursor: pointer;
 }
 
 #textBox > * {

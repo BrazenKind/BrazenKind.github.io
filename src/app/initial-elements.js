@@ -13,24 +13,13 @@ const y_one_start = 0;
 export const center_x = x_one_start + 100;
 export const center_y = y_one_start + 75;
 
-const x_two_start = 650;
-const y_two_start = 300;
+const x_two_start = 300;
+const y_two_start = 200;
 
-const x_three_start = 900;
-const y_three_start = 100;
 
-const x_interval = 150;
+const x_interval = 250;
 
-// const used to define the style of the marker ends (the "arrowtips") of the edges.
-// source: https://reactflow.dev/docs/api/edges/edge-options/#edgemarker
 
-const markerStyle = {
-      type: MarkerType.Arrow,
-      width: 20,
-      height: 20,
-      strokeWidth: 1,
-      color: 'black',
-    };
 
 // X coordinates for each axis of nodes are calculated by taking the X position of the first node in that axis
 // and incrementing it multiple times by the const x_interval. Currently x_interval is set to 150, and this
@@ -51,7 +40,7 @@ export let nodes = [
         position: {x: 0, y: 0},
         style: {
             width: 1400,
-            height: 700,
+            height: 200,
             background: 'rgb(255, 255, 255, 0)',
         },
         type: 'wrapper',
@@ -65,19 +54,21 @@ export let nodes = [
         style: {
             width: 'auto',
             fontSize: '32px',
+            display: 'none',
         },
-        position: {x: 700, y: -75},
+        position: {x: 50, y: -125},
+        extent: [[50, -125], [50, -125]],
         hidden: true,
     },
     {
         id: '1.1',
         data: {
             label: 'Conditional Random Field Implementation',
+            desc: 'My graduate assessment for CMSC 673: introduction to natural language processing.',
             labelpos: 'nodeLabelTop',
-            desc: 'My final project for the first course I\'ve taken in an AI related field: introduction to natural language processing.',
             projdesc: 'asdf',
             leftStyle: {visibility: 'hidden',},
-            rightStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'visible',},
         },
         className: 'jobitem',
         type: 'betweenNode',
@@ -85,6 +76,154 @@ export let nodes = [
         parentNode: 'all',
         extent: 'parent',
     },
+    {
+        id: '1.2',
+        data: {
+            label: 'Covid Misinformation Detector',
+            desc: 'My final project for CMSC 673: introduction to natural language processing.',
+            labelpos: 'nodeLabelTop',
+            projdesc: 'asdf',
+            leftStyle: {visibility: 'visible',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'jobitem',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 1) , y: y_one_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '1.3',
+        data: {
+            label: 'Sign Language Image Classifier',
+            desc: 'My final project for CMSC 678: introduction to Machine Learning.',
+            labelpos: 'nodeLabelTop',
+            projdesc: 'asdf',
+            leftStyle: {visibility: 'visible',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'jobitem',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 3) , y: y_one_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '1.4',
+        data: {
+            label: 'Wordle Solver',
+            desc: 'My final project for CMSC 671: principles of artificial intelligence.',
+            labelpos: 'nodeLabelTop',
+            projdesc: 'asdf',
+            leftStyle: {visibility: 'visible',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'jobitem',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 5) , y: y_one_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '1.5',
+        data: {
+            label: 'Aeroplane: an Android Password Archiver',
+            desc: 'My final project for CMSC 628: Introduction to Mobile Computing.',
+            labelpos: 'nodeLabelTop',
+            projdesc: 'asdf',
+            leftStyle: {visibility: 'visible',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'jobitem',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 7) , y: y_one_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '1.6',
+        data: {
+            label: '',
+            desc: '',
+            labelpos: 'circleStubLabel',
+            leftStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'hidden',},
+        },
+        className: 'hidden_node',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 9) , y: y_one_start+75},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '2.0',
+        data: {
+            label: '',
+            desc: '',
+            labelpos: 'circleStubLabel',
+            leftStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'hidden',},
+        },
+        className: 'hidden_node',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 0) , y: y_two_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '2.1',
+        data: {
+            label: '2022',
+            desc: '',
+            labelpos: 'circleStubLabel',
+            leftStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'circle_stub',
+        type: 'betweenNode',
+        position: {x: getxpos(x_two_start, 1) , y: y_two_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '2.2',
+        data: {
+            label: '2023',
+            desc: '',
+            labelpos: 'circleStubLabel',
+            leftStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'visible',},
+        },
+        className: 'circle_stub',
+        type: 'betweenNode',
+        position: {x: getxpos(x_two_start, 5) , y: y_two_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
+    {
+        id: '2.3',
+        data: {
+            label: 'Current',
+            desc: '',
+            labelpos: 'circleStubLabel',
+            leftStyle: {visibility: 'hidden',},
+            rightStyle: {visibility: 'hidden',},
+        },
+        className: 'circle_stub',
+        type: 'betweenNode',
+        position: {x: getxpos(x_one_start, 9) , y: y_two_start},
+        parentNode: 'all',
+        extent: 'parent',
+    },
+
 
 
 ];
@@ -101,7 +240,24 @@ export let nodes = [
 // 'b' = bottom handle
 // 'l' = left handle
 
+// const used to define the style of the marker ends (the "arrowtips") of the edges.
+// source: https://reactflow.dev/docs/api/edges/edge-options/#edgemarker
+
+const markerStyle = {
+      type: MarkerType.Arrow,
+      width: 20,
+      height: 20,
+      strokeWidth: 1,
+      color: 'black',
+    };
+
 export const edges = [
-
-
+    {id: '1.1-1.2', source: '1.1', target: '1.2', markerEnd: markerStyle,},
+    {id: '1.2-1.3', source: '1.2', target: '1.3', markerEnd: markerStyle,},
+    {id: '1.3-1.4', source: '1.3', target: '1.4', markerEnd: markerStyle,},
+    {id: '1.4-1.5', source: '1.4', target: '1.5', markerEnd: markerStyle,},
+    {id: '1.5-1.6', source: '1.5', target: '1.6', markerEnd: markerStyle, animated: true},
+    {id: '2.0-2.1', source: '2.0', target: '2.1', animated: true},
+    {id: '2.1-2.2', source: '2.1', target: '2.2',},
+    {id: '2.2-2.3', source: '2.2', target: '2.3', animated: true},
 ];

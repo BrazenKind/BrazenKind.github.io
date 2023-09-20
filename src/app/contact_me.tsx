@@ -7,6 +7,8 @@ import React, { useEffect } from 'react'
 
 export default function Contact_Me () {
 
+    //the below js code is all taken from the form-submission-handler.js file in the original github repo cited above.
+    //Some minor modifications were made to ensure compatibility with my code.
     function getFormData(form) {
         var elements = form.elements;
         var honeypot;

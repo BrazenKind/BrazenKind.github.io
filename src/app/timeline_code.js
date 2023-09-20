@@ -69,7 +69,10 @@ function Timeline() {
     const [projDesc, setProjDesc] = useState("");
     const [minZ, setMinZ] = useState(0.5);
     const [maxZ, setMaxZ] = useState(2);
-    const [panLimit, setPanLimit] = useState([[-Infinity, -Infinity], [Infinity, Infinity]])
+    const [curCenterX, setCurCenterX] = useState(center_x);
+    const [curCenterY, setCurCenterY] = useState(center_y);
+    const [panLimit, setPanLimit] = useState([[-Infinity, -Infinity], [Infinity, Infinity]]);
+
 
     // 'setCenter' isn't a const, but a helper function we're calling from the useReactFlow hook. In order to call
     // any of these helper functions, the reactflow element its being called from must be wrapped in the
@@ -84,12 +87,15 @@ function Timeline() {
     const onNodeClick = useCallback((event, node) => {
 
             if (node.id == 'return') {
+                //NOTE: Return node is hidden for the purpose of this visualization. To make it visible,
+                //go to initial_elements.js, find the JSON element with an id field of "return",
+                //then remove "display: 'none'" from its style element.
                 const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
                 const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
 
                 const zoom = 0.8;
 
-                setCenter(center_x, center_y, { zoom, duration: 1000 });
+                setCenter(curCenterX, curCenterY, { zoom, duration: 1000 });
                 setVisible('hidden');
                 setMaxZ(2);
                 setMinZ(0.5);
@@ -97,14 +103,16 @@ function Timeline() {
 
 
             } else if (node.type != 'wrapper' && node.className != 'circle_stub') {
+                setCurCenterX(node.position.x + 100);
+                setCurCenterY(node.position.y + 75);
+
                 const zoom = 0.5;
 
                 const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
                 const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
                 const offsetfactor = (0.5*(1/zoom))
-                const x_displacement = offsetfactor*width - 25;
-                const y_displacement = -(height-700)*offsetfactor + 25;
-
+                const x_displacement = (width)*offsetfactor;
+                const y_displacement = -(height)*offsetfactor + 275;
 
                 setCenter(x_displacement, y_displacement, { zoom, duration: 1000 });
                 setBgIndex((node.data.bg)? node.data.bg: No_BG);
@@ -113,11 +121,24 @@ function Timeline() {
                 setVisible('visible');
                 setMaxZ(zoom);
                 setMinZ(zoom);
-                setPanLimit([[x_displacement, y_displacement], [x_displacement, y_displacement]]);
+                setPanLimit([[-(width/zoom) + 250, y_displacement], [(width/zoom) + 1750, y_displacement]]);
 
             }
         }
     );
+
+    const returnToInitialView = useCallback(() => {
+        const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
+        const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
+
+        const zoom = 0.8;
+
+        setCenter(curCenterX, curCenterY, { zoom, duration: 1000 });
+        setVisible('hidden');
+        setMaxZ(2);
+        setMinZ(0.5);
+        setPanLimit([[-Infinity, -Infinity], [Infinity, Infinity]]);
+    }, [curCenterX, curCenterY, panLimit, minZ, maxZ, contentVisible]);
 
     //hook that gets called whenever contentVisible state gets changed. Simply toggles the visibility of
     //the "return to initial view" button.
@@ -151,6 +172,7 @@ function Timeline() {
     const textBoxStyle = {
         visibility: `${contentVisible}`,
         width: '40vw',
+        height: '30vh',
         borderRadius: '5%',
         background: 'rgba(200, 200, 200, 0.5)',
         fontSize: '1em',
@@ -161,8 +183,21 @@ function Timeline() {
 
     const imgBoxStyle = {
         visibility: `${contentVisible}`,
-        height: '50vh',
+        width: '40vw',
+        maxWidth: '300px',
+        borderRadius: '5%',
         background: 'rgba(200, 200, 200, 0.5)',
+    };
+
+    const returnButtonStyle = {
+        visibility: `${contentVisible}`,
+        background: 'rgba(255, 255, 255, 0.5)',
+        borderRadius: '5%',
+        fontWeight: 'bold',
+        marginTop: '10px',
+        width: 'fit-content',
+        padding: '2px',
+
     };
 
     return (
@@ -186,15 +221,20 @@ function Timeline() {
             <Background color="#aaa" gap={16} />
 
             <Panel position="top-right" style={{visibility: `${contentVisible}`}}>
-                <img src={`${bgIndex}`} style={imgBoxStyle}/>
+                <img id="imageBox" src={`${bgIndex}`} style={imgBoxStyle}/>
             </Panel>
 
-            <Panel position="bottom-right" style={{visibility: `${contentVisible}`}}>
+            <Panel position="top-left" style={{visibility: `${contentVisible}`}}>
                 <div id="textBox" style={textBoxStyle}>
                     <p>{textContent}</p>
                     <p className="projDesc" >{projDesc}</p>
                 </div>
+                <div id="return_button" onClick={returnToInitialView} style={returnButtonStyle}>
+                    Return to Free View Mode
+                </div>
             </Panel>
+
+
 
          </ReactFlow>
 

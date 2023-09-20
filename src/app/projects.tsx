@@ -10,7 +10,6 @@ export default function Projects(){
             <div className="project_card"> test  </div>
             <div className="project_card"> test </div>
             <div className="project_card"> test </div>
-            <div className="project_card"> test </div>
         </div>
     )
 }

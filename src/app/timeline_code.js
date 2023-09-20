@@ -183,6 +183,7 @@ function Timeline() {
         display: 'flex',
         flexFlow: 'column nowrap',
         maxHeight: '35vh',
+        overflow: 'auto',
     };
 
     const imgBoxStyle = {

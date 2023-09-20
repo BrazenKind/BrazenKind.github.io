@@ -106,22 +106,26 @@ function Timeline() {
                 setCurCenterX(node.position.x + 100);
                 setCurCenterY(node.position.y + 75);
 
-                const zoom = 0.5;
 
-                const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
-                const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
-                const offsetfactor = (0.5*(1/zoom))
-                const x_displacement = (width)*offsetfactor;
-                const y_displacement = -(height)*offsetfactor + 275;
+                if (contentVisible == 'hidden'){
+                    const zoom = 0.5;
+                    const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
+                    const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
+                    const offsetfactor = (0.5*(1/zoom))
+                    const x_displacement = (width)*offsetfactor;
+                    const y_displacement = -(height)*offsetfactor + 275;
 
-                setCenter(x_displacement, y_displacement, { zoom, duration: 1000 });
+                    setCenter(x_displacement, y_displacement, { zoom, duration: 1000 });
+                    setMaxZ(zoom);
+                    setMinZ(zoom);
+                    setPanLimit([[-(width/zoom) + 250, y_displacement], [(width/zoom) + 1750, y_displacement]]);
+                }
+
                 setBgIndex((node.data.bg)? node.data.bg: No_BG);
                 setTextContent(node.data.desc);
                 setProjDesc(node.data.projdesc);
                 setVisible('visible');
-                setMaxZ(zoom);
-                setMinZ(zoom);
-                setPanLimit([[-(width/zoom) + 250, y_displacement], [(width/zoom) + 1750, y_displacement]]);
+
 
             }
         }
@@ -183,7 +187,7 @@ function Timeline() {
 
     const imgBoxStyle = {
         visibility: `${contentVisible}`,
-        width: '40vw',
+        width: '30vw',
         maxWidth: '300px',
         borderRadius: '5%',
         background: 'rgba(200, 200, 200, 0.5)',

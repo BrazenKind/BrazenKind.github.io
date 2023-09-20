@@ -8,7 +8,7 @@ export default function Projects(){
 
         <div id = "project_wrapper">
             {
-                project_descs.map(item => <Project_Card name={item.name} desc={item.desc} github={item.github}/>)
+                project_descs.map(item => <Project_Card key={item.name} name={item.name} desc={item.desc} github={item.github}/>)
             }
         </div>
     )

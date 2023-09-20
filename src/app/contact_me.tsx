@@ -115,7 +115,7 @@ export default function Contact_Me () {
 
             <div className = "pan_left">
                 <div style={{fontSize: '48px'}}> Let us Connect! </div>
-                <div style={{margin: '20px', textAlign: 'center'}}> Whether you're a recruiter, someone else studying comp sci, or simply a stranger with questions, feel free to reach out to me. I'm always happy to talk to someone who takes an interest in what I do. <br/> <br/> To make this section feel less empty, have a MSPaint doodle I did for a friend.</div>
+                <div style={{margin: '20px', textAlign: 'center'}}> Whether you&apos;re a recruiter, someone else studying comp sci, or simply a stranger with questions, feel free to reach out to me. I&apos;m always happy to talk to someone who takes an interest in what I do. <br/> <br/> To make this section feel less empty, have a MSPaint doodle I did for a friend.</div>
                 <img style={{height: '200px'}}src="Eat_egg.png"/>
             </div>
             <div className = "pan_right">
@@ -150,7 +150,7 @@ export default function Contact_Me () {
                     <i></i>&nbsp;Send</button>
                     <div style={{display:'none'}} className="thankyou_message">
 
-                        <h2><em>Thanks</em> for contacting me! I'll respond at my earliest convenience.</h2>
+                        <h2><em>Thanks</em> for contacting me! I&apos;ll respond at my earliest convenience.</h2>
                     </div>
 
                 </form>

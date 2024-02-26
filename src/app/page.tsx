@@ -16,8 +16,6 @@ export default function Home() {
 
             <Intro_Text/>
 
-            <a href="/Sinclair Fuh Resume Ver 2.3.pdf" target="_blank"> Test Link </a>
-
             <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', margin: '30px'}}> Interactive CV </div>
             <div style={{textAlign: 'center'}}>
                 Click and drag to move the graph around! Click on any text box to expand it and display its information. <br/>

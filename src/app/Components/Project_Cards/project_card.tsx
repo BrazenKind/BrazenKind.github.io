@@ -1,4 +1,4 @@
-import './css/project_card.css'
+import '../css/project_card.css'
 
 export default function Project_Card(data){
     return(

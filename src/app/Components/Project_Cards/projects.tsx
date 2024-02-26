@@ -1,4 +1,4 @@
-import './css/projects.css'
+import '../css/projects.css'
 import {project_descs} from './project_descriptions'
 import Project_Card from './project_card.tsx'
 

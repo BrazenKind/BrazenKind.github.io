@@ -1,0 +1,7 @@
+#intro_banner{
+    height: 40vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}

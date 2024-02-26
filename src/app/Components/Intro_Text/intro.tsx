@@ -1,4 +1,4 @@
-import './css/intro.css'
+import '../css/intro.css'
 import Image from 'next/image'
 
 export default function Intro(data){

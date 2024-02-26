@@ -1,9 +1,4 @@
 #banner {
-    height: 40vh;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 4em;
 }
 
@@ -14,8 +9,6 @@
 
 @media (max-width: 540px) {
     #banner {
-        height: 40vh;
-        color: white;
         display: flex;
         align-items: center;
         justify-content: center;

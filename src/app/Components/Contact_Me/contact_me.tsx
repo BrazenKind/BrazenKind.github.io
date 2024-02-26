@@ -1,6 +1,6 @@
 'use client'
 
-import './css/contact_me.css'
+import '../css/contact_me.css'
 import React, { useEffect } from 'react'
 //credit to https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server for
 //code to submit emails using google scripts + spreadsheets.

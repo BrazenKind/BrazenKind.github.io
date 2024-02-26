@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from "react";
-import './css/banner.css';
+import '../css/banner_text.css';
 
 function generateDelay(base, variance) {
     return base + (Math.round((Math.random()*2 - 1)*100)/100)*variance;

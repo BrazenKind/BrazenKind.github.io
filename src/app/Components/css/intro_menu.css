@@ -1,0 +1,13 @@
+#intro_menu{
+    font-size: 1.5em;
+}
+
+@media (max-width: 540px) {
+    #intro_menu{
+        font-size: 1em;
+    }
+}
+
+a:hover{
+    filter: invert(50%);
+}

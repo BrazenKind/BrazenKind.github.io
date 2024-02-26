@@ -1,10 +1,10 @@
-import './css/page.css'
-import Banner from './banner.tsx'
-import Intro from './intro.tsx'
+import './Components/css/page.css'
+import Intro_Banner from './Components/Intro_Banner/Intro_Banner.tsx'
+import Intro_Text from './Components/Intro_Text/intro.tsx'
 import Image from 'next/image'
-import Timeline from './timeline_code.js'
-import Projects from './projects.tsx'
-import Contact_Me from './contact_me.tsx'
+import Timeline from './Components/Timeline/timeline_code.js'
+import Project_Cards from './Components/Project_Cards/projects.tsx'
+import Contact_Me from './Components/Contact_Me/contact_me.tsx'
 
 export default function Home() {
 
@@ -12,9 +12,11 @@ export default function Home() {
     <main>
         <div className="main-container">
 
-            <Banner text="Brazenkind"/>
+            <Intro_Banner/>
 
-            <Intro/>
+            <Intro_Text/>
+
+            <a href="/Sinclair Fuh Resume Ver 2.3.pdf" target="_blank"> Test Link </a>
 
             <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', margin: '30px'}}> Interactive CV </div>
             <div style={{textAlign: 'center'}}>
@@ -30,7 +32,7 @@ export default function Home() {
                 Every project described in the interactive CV above.
             </div>
 
-            <Projects/>
+            <Project_Cards/>
 
 
         </div>

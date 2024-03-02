@@ -16,8 +16,8 @@ export default function Intro(data){
               <div id="texttitle" >About Me</div>
               <div id="textcontent">
                 I&apos;m <span style={{color: 'blue'}}>Sinclair</span>, a graduate student whose studies intersect Artificial Intelligence with Software Enginnering.
-                 <span style={{color: 'blue'}}> Brazenkind</span> is the alias I use on github. As of writing this, I&apos;m interning at the DEVCOM army reserach laboratory. I&apos;m working on developing interactive demos that
-                 demonstrate their research projects in AI, as well as the webpage that hosts said interactive demos.
+                 <span style={{color: 'blue'}}> Brazenkind</span> is the alias I use on github. I just finished my Masters' in Computer Science, alongside a one year fellowship
+                 at Devcom ARL doing web development. I'm currently looking for software engineering/artificial intelligence roles, but also have an interest in virtual reality.
               </div>
             </div>
         </div>

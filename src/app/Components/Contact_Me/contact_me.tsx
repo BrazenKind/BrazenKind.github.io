@@ -31,7 +31,7 @@ export default function Contact_Me () {
 
         var formData = {};
         fields.forEach(function(name){
-          console.log(name);
+          console.log(elements[name].value);
           var element = elements[name];
 
           formData[name] = element.value;
@@ -115,12 +115,11 @@ export default function Contact_Me () {
 
             <div className = "pan_left">
                 <div style={{fontSize: '48px'}}> Let us Connect! </div>
-                <div style={{margin: '20px', textAlign: 'center'}}> Whether you&apos;re a recruiter, someone else studying comp sci, or simply a stranger with questions, feel free to reach out to me. I&apos;m always happy to talk to someone who takes an interest in what I do. <br/> <br/> To make this section feel less empty, have a MSPaint doodle I did for a friend.</div>
-                <img style={{height: '200px'}}src="Eat_egg.png"/>
+                <div style={{margin: '20px', fontSize: '20px', textAlign: 'center', width: '70%'}}> Whether you&apos;re <span style={{color: 'var(--rgb-end)'}}>a recruiter</span>, <span style={{color: 'var(--rgb-end)'}}> someone else studying comp sci </span>, or simply <span style={{color: 'var(--rgb-end)'}}> a stranger with questions </span>, feel free to reach out to me using the contact form in this section. I&apos;m always happy to talk to someone who takes an interest in what I do. </div>
             </div>
             <div className = "pan_right">
-                <div style={{fontSize: '48px'}}> Contact Form </div>
-                <form className="gform" method="POST"
+                <div style={{fontSize: '48px', textAlign: 'center'}}> Contact Form </div>
+                <form className="gform" method="POST" style={{display: 'flex', alignItems:'center', flexFlow: 'column'}}
   action="https://script.google.com/macros/s/AKfycbzGNppTCc71OFpd0F0Ay_xEktVU4NjSt0vIGrXaYgv9Bw6UkSlpbTn2trPsxl4JSZRSHQ/exec">
                     <fieldset>
                         <label htmlFor="name">Name: </label>
@@ -131,7 +130,7 @@ export default function Contact_Me () {
                     <fieldset>
                         <label htmlFor="message">Message: </label>
                         <br/>
-                        <input id="message" name="message" placeholder="Tell us what's on your mind..." />
+                        <textarea id="message" name="message" placeholder="Tell us what's on your mind..." />
                     </fieldset>
 
 

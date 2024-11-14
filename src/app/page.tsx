@@ -32,10 +32,11 @@ export default function Home() {
 
             <Project_Cards/>
 
+            <Contact_Me/>
 
         </div>
 
-        <Contact_Me/>
+
 
     </main>
   )

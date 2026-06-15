@@ -1,7 +1,7 @@
 'use client'
 
 import '../css/contact_me.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 //credit to https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server for
 //code to submit emails using google scripts + spreadsheets.
 
@@ -9,6 +9,9 @@ export default function Contact_Me () {
 
     //the below js code is all taken from the form-submission-handler.js file in the original github repo cited above.
     //Some minor modifications were made to ensure compatibility with my code.
+
+    const [buttonDisabled, setButtonDisabled] = useState(false)
+
     function getFormData(form) {
         var elements = form.elements;
         var honeypot;
@@ -31,7 +34,6 @@ export default function Contact_Me () {
 
         var formData = {};
         fields.forEach(function(name){
-          console.log(elements[name].value);
           var element = elements[name];
 
           formData[name] = element.value;
@@ -68,6 +70,7 @@ export default function Contact_Me () {
         }
 
         disableAllButtons(form);
+        setButtonDisabled(true);
         var url = form.action;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
@@ -85,6 +88,7 @@ export default function Contact_Me () {
                 thankYouMessage.style.display = "block";
               }
             }
+            setButtonDisabled(false);
     };
 
     var encoded = Object.keys(data).map(function(k) {
@@ -106,7 +110,6 @@ export default function Contact_Me () {
     useEffect(() => {
         var forms = document.querySelectorAll("form.gform");
         for (var i = 0; i < forms.length; i++) {
-            console.log(forms[i]);
             forms[i].addEventListener("submit", handleFormSubmit, false);
         }}, []);
 
@@ -120,7 +123,7 @@ export default function Contact_Me () {
             <div className = "pan_right">
                 <div style={{fontSize: '48px', textAlign: 'center'}}> Contact Form </div>
                 <form className="gform" method="POST" style={{display: 'flex', alignItems:'center', flexFlow: 'column'}}
-  action="https://script.google.com/macros/s/AKfycbzGNppTCc71OFpd0F0Ay_xEktVU4NjSt0vIGrXaYgv9Bw6UkSlpbTn2trPsxl4JSZRSHQ/exec">
+  action="https://script.google.com/macros/s/AKfycbx7gqwE891jsyo_R9OuShbSrboSSAOcs8rvHZlJIjzus58LA57x2gIVheUKxcD-CzHOYg/exec">
                     <fieldset>
                         <label htmlFor="name">Name: </label>
                         <br/>
@@ -145,7 +148,7 @@ export default function Contact_Me () {
                         <input id="honeypot" type="text" name="honeypot"/>
                     </fieldset>
 
-                    <button id="send_button">
+                    <button disabled={buttonDisabled} id="send_button">
                     <i></i>&nbsp;Send</button>
                     <div style={{display:'none'}} className="thankyou_message">
 

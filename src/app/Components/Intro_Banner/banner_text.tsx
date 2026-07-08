@@ -15,7 +15,7 @@ export default function Banner(data) {
   const titleLength = data.text.length;
   const [titleText, setTitleText] = React.useState("");
 
-  const prevTime = React.useRef();
+  const prevTime = React.useRef(undefined);
   const curRequestRef = React.useRef(0);
   const curIndex = React.useRef(0);
   const curTextDelay = React.useRef(generateDelay(baseTextDelay, baseTextVariance));

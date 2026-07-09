@@ -9,8 +9,9 @@ main {
     justify-content: center;
     align-items: stretch;
     width: 95vw;
-    margin: 2.5vw;
-    padding: 20px;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    margin-bottom: 5vh;
     gap: 20px;
 }
 

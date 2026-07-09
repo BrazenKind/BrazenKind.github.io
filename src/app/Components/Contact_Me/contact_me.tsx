@@ -163,7 +163,7 @@ export default function Contact_Me () {
                     <h2><em>Thanks</em> for contacting me! I&apos;ll respond at my earliest convenience.</h2>
                   </div> */}
                 </form>
-                <ToastContainer />
+                <ToastContainer position="bottom-right"/>
             </div>
         </div>
     )

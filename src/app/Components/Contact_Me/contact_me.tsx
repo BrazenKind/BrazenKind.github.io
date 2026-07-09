@@ -123,7 +123,7 @@ export default function Contact_Me () {
         <div id = "contact_me">
 
             <div className = "pan_left">
-                <div style={{fontSize: '48px'}}> Let us Connect! </div>
+                <div style={{fontSize: '48px', textAlign: 'center'}}> Let us Connect! </div>
                 <div style={{margin: '20px', fontSize: '20px', textAlign: 'center', width: '70%'}}> Whether you&apos;re <span style={{color: 'var(--rgb-end)'}}>a recruiter</span>, <span style={{color: 'var(--rgb-end)'}}> someone else studying comp sci </span>, or simply <span style={{color: 'var(--rgb-end)'}}> a stranger with questions </span>, feel free to reach out to me using the contact form in this section. I&apos;m always happy to talk to someone who takes an interest in what I do. </div>
             </div>
             <div className = "pan_right">

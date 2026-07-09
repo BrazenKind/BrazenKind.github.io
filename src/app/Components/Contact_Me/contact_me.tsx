@@ -2,6 +2,7 @@
 
 import '../css/contact_me.css'
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
 //credit to https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server for
 //code to submit emails using google scripts + spreadsheets.
 
@@ -10,7 +11,9 @@ export default function Contact_Me () {
     //the below js code is all taken from the form-submission-handler.js file in the original github repo cited above.
     //Some minor modifications were made to ensure compatibility with my code.
 
-    const [buttonDisabled, setButtonDisabled] = useState(false)
+    const [buttonDisabled, setButtonDisabled] = useState(false);
+    const notify_success = () => toast("Thanks for contacting me! I'll respond at my earliest convenience.");
+    const notify_error = () => toast("An error occured when submitting the email form. Please send your message manually to sfuh1@umbc.edu.");
 
     function getFormData(form) {
         var elements = form.elements;
@@ -79,14 +82,17 @@ export default function Contact_Me () {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
               form.reset();
-              var formElements = form.querySelector(".form-elements")
-              if (formElements) {
-                formElements.style.display = "none"; // hide form
-              }
-              var thankYouMessage = form.querySelector(".thankyou_message");
-              if (thankYouMessage) {
-                thankYouMessage.style.display = "block";
-              }
+              // var formElements = form.querySelector(".form-elements")
+              // if (formElements) {
+              //   formElements.style.display = "none"; // hide form
+              // }
+              // var thankYouMessage = form.querySelector(".thankyou_message");
+              // if (thankYouMessage) {
+              //   thankYouMessage.style.display = "block";
+              // }
+              notify_success();
+            } else if (xhr.readyState === 4){
+              notify_error();
             }
             setButtonDisabled(false);
     };
@@ -122,40 +128,42 @@ export default function Contact_Me () {
             </div>
             <div className = "pan_right">
                 <div style={{fontSize: '48px', textAlign: 'center'}}> Contact Form </div>
-                <form className="gform" method="POST" style={{display: 'flex', alignItems:'center', flexFlow: 'column'}}
+                
+                <form className="gform" method="POST" 
   action="https://script.google.com/macros/s/AKfycbx7gqwE891jsyo_R9OuShbSrboSSAOcs8rvHZlJIjzus58LA57x2gIVheUKxcD-CzHOYg/exec">
-                    <fieldset>
-                        <label htmlFor="name">Name: </label>
-                        <br/>
-                        <input id="name" name="name" placeholder="First, what is your name?" />
-                    </fieldset>
+                      <fieldset>
+                          <label htmlFor="name">Name: </label>
+                          <br/>
+                          <input id="name" name="name" placeholder="First, what is your name?" />
+                      </fieldset>
 
-                    <fieldset>
-                        <label htmlFor="message">Message: </label>
-                        <br/>
-                        <textarea id="message" name="message" placeholder="Tell us what's on your mind..." />
-                    </fieldset>
+                      <fieldset>
+                          <label htmlFor="message">Message: </label>
+                          <br/>
+                          <textarea id="message" name="message" placeholder="Tell us what's on your mind..." />
+                      </fieldset>
 
 
-                    <fieldset>
-                        <label htmlFor="email">Email: </label>
-                        <br/>
-                        <input id="email" name="email" required placeholder="What address should I contact you back at?" />
-                    </fieldset>
+                      <fieldset>
+                          <label htmlFor="email">Email: </label>
+                          <br/>
+                          <input id="email" name="email" required placeholder="What address should I contact you back at?" />
+                      </fieldset>
 
-                    <fieldset className ="" style={{display: 'none'}}>
-                        <label htmlFor="honeypot"> </label>
-                        <input id="honeypot" type="text" name="honeypot"/>
-                    </fieldset>
+                      <fieldset className ="" style={{display: 'none'}}>
+                          <label htmlFor="honeypot"> </label>
+                          <input id="honeypot" type="text" name="honeypot"/>
+                      </fieldset>
+                    
 
-                    <button disabled={buttonDisabled} id="send_button">
-                    <i></i>&nbsp;Send</button>
-                    <div style={{display:'none'}} className="thankyou_message">
-
-                        <h2><em>Thanks</em> for contacting me! I&apos;ll respond at my earliest convenience.</h2>
-                    </div>
-
+                    <button disabled={buttonDisabled} className={`${buttonDisabled?`loader`:`loaded`}`} id="send_button">
+                    <i></i>{`${buttonDisabled?``:'Send'}`}</button>
+                    
+                  {/* <div style={{display:'none'}} className="thankyou_message">
+                    <h2><em>Thanks</em> for contacting me! I&apos;ll respond at my earliest convenience.</h2>
+                  </div> */}
                 </form>
+                <ToastContainer />
             </div>
         </div>
     )

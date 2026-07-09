@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState, Component, useCallback }from "react";
+import React, { useEffect, useState, useRef, Component, useCallback }from "react";
 import { Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
 
@@ -51,6 +51,30 @@ const nodeTypes = {
 };
 
 
+function getReactPaneWidth() {
+
+    const retval = document.getElementsByClassName('react-flow__pane')[0];
+
+    if (!retval){
+        return Infinity
+    } else {
+        return retval.offsetWidth;
+    }
+    
+}
+
+function getReactPaneHeight() {
+    
+    const retval = document.getElementsByClassName('react-flow__pane')[0];
+    
+    if (!retval){
+        return Infinity
+    } else {
+        return retval.offsetHeight;
+    }
+}
+
+
 function Timeline() {
 
     const No_BG = './No_BG.png'
@@ -69,9 +93,15 @@ function Timeline() {
     const [projDesc, setProjDesc] = useState("");
     const [minZ, setMinZ] = useState(0.5);
     const [maxZ, setMaxZ] = useState(2);
-    const [curCenterX, setCurCenterX] = useState(center_x);
-    const [curCenterY, setCurCenterY] = useState(center_y);
+    const curCenterX = useRef(center_x);
+    const curCenterY = useRef(center_y);
     const [panLimit, setPanLimit] = useState([[-Infinity, -Infinity], [Infinity, Infinity]]);
+    const reactPaneWidth = useRef(Infinity);
+    const reactPaneHeight = useRef(Infinity);
+
+    const setFreeViewPanLimit = () => {
+        setPanLimit([[-reactPaneWidth.current + 250, -reactPaneHeight.current*0.6], [reactPaneWidth.current + 1750, reactPaneHeight.current]]);
+    }
 
 
     // 'setCenter' isn't a const, but a helper function we're calling from the useReactFlow hook. In order to call
@@ -93,18 +123,21 @@ function Timeline() {
                 const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
                 const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
 
-                const zoom = 0.8;
+                console.log(height);
 
-                setCenter(curCenterX, curCenterY, { zoom, duration: 1000 });
+                const zoom = 0.8;
+                
                 setVisible('hidden');
                 setMaxZ(2);
                 setMinZ(0.5);
-                setPanLimit([[-Infinity, -Infinity], [Infinity, Infinity]]);
+                setCenter(curCenterX.current, curCenterY.current, { maxZ, duration: 1000 });
+                setFreeViewPanLimit();
 
 
             } else if (node.type != 'wrapper' && node.className != 'circle_stub') {
-                setCurCenterX(node.position.x + 100);
-                setCurCenterY(node.position.y + 75);
+
+                curCenterX.current = node.position.x + 100;
+                curCenterY.current = node.position.y + 75;
 
 
                 if (contentVisible == 'hidden'){
@@ -132,17 +165,20 @@ function Timeline() {
     );
 
     const returnToInitialView = useCallback(() => {
+
+        //This is the function that gets called in place of the original return node.
+
         const width = document.getElementsByClassName('react-flow__pane')[0].offsetWidth;
         const height = document.getElementsByClassName('react-flow__pane')[0].offsetHeight;
 
-        const zoom = 0.8;
+        const zoom = 1;
 
-        setCenter(curCenterX, curCenterY, { zoom, duration: 1000 });
+        setCenter(curCenterX.current, curCenterY.current, { zoom, duration: 1000 });
         setVisible('hidden');
         setMaxZ(2);
         setMinZ(0.5);
-        setPanLimit([[-Infinity, -Infinity], [Infinity, Infinity]]);
-    }, [curCenterX, curCenterY, panLimit, minZ, maxZ, contentVisible]);
+        setFreeViewPanLimit();
+    }, [panLimit, minZ, maxZ, contentVisible]);
 
     //hook that gets called whenever contentVisible state gets changed. Simply toggles the visibility of
     //the "return to initial view" button.
@@ -159,13 +195,28 @@ function Timeline() {
         );
       }, [contentVisible, setNodes]);
 
-    //hook that gets called when this component mounts. Centers screen.
+
+    
+
+    //hook that gets called when this component mounts. Centers screen and reads in width/height of react flow pane.
 
     const center_screen = useCallback((instance) => {
         const zoom = 1;
         setCenter(center_x, center_y, { zoom, duration: 500 });
 
+        reactPaneWidth.current = getReactPaneWidth();
+        reactPaneHeight.current = getReactPaneHeight();
+        setFreeViewPanLimit();
+
+        window.addEventListener('resize', () => {
+            reactPaneWidth.current = getReactPaneWidth();
+            reactPaneHeight.current = getReactPaneHeight();
+            setFreeViewPanLimit();
+        });
+
     });
+
+
 
     // All CSS stylesheet elements that make use of react states must be declared as a const here.
     // I.E. if some element <div> needs to make use of the react state "contentVisible",
@@ -211,6 +262,9 @@ function Timeline() {
          <ReactFlow
           nodes={nodes}
           edges={edges}
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
           onInit = {center_screen}
           nodesDraggable={false}
           onNodesChange={onNodesChange}
@@ -224,7 +278,7 @@ function Timeline() {
           attributionPosition="top-right"
         >
 
-            <Controls />
+            {/* <Controls /> */}
             <Background color="#aaa" gap={16} />
 
             <Panel position="top-right" style={{visibility: `${contentVisible}`}}>

@@ -22,6 +22,13 @@ main {
     }
 }
 
+@media (max-width: 750px) {
+    
+    .main-container {
+        margin-left: 0;
+    }
+}
+
 .child-container {
     border: 50px solid transparent;
     background: var(--child-bg-color);

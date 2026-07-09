@@ -27,14 +27,28 @@
     box-sizing: border-box;
 }
 
-fieldset {
+
+.gform {
+    display: flex;
+    align-items: center; 
+    flex-flow: column;
+
+}
+
+.gform > fieldset {
+    border: none;
     width: 65%;
 }
+
+/* fieldset {
+    width: 65%;
+} */
 
 input, textarea {
     width: 100%;
     height: 40px;
     border-radius: 5px;
+    border: none;
     color: black;
     padding: 10px;
 }
@@ -45,11 +59,9 @@ textarea#message {
 }
 
 
-
 #send_button {
     border-radius: 5%;
     border: 5px solid transparent;
-    border-right: 10px solid transparent;
     background: white;
     text-align: center;
     margin-top: 10px;
@@ -57,6 +69,43 @@ textarea#message {
     font-size: 1.5em;
     color: black;
 }
+
+#send_button:disabled {
+  --color-1: #fff;
+  --color-2: rgba(0, 0, 0, 0.25);
+  --size: 1px;
+
+  width: calc(96 * var(--size));
+  height: calc(16 * var(--size));
+  display: inline-block;
+  background-color: var(--color-1);
+  border: calc(1 * var(--size)) solid var(--color-1);
+  border-radius: calc(4 * var(--size));
+  background-image: linear-gradient(
+    45deg,
+    var(--color-2) 25%,
+    transparent 25%,
+    transparent 50%,
+    var(--color-2) 50%,
+    var(--color-2) 75%,
+    transparent 75%,
+    transparent
+  );
+  font-size: calc(30 * var(--size));
+  background-size: 1em 1em;
+  box-sizing: border-box;
+  animation: barStripe 1s linear infinite;
+}
+
+@keyframes barStripe {
+  0% {
+    background-position: 1em 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 
 @media (max-width: 850px) {
 
@@ -70,13 +119,13 @@ textarea#message {
 
     .pan_left {
         width: 100%;
-        flex: 1 0 50%;
+        flex: 1 0 40%;
         box-sizing: border-box;
     }
 
     .pan_right {
-        width: 100%;
-        flex: 1 0 50%;
+        width: 90%;
+        flex: 1 0 60%;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -84,3 +133,5 @@ textarea#message {
         box-sizing: border-box;
     }
 }
+
+
